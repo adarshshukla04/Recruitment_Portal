@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+<body>
+<%- include('partials/navbar') %>
+
+<div class="conatiner">
+    <br>
+    <h3 class="text-center">Add Job for Library</h3>
+    <br>
+    <div class="col-md-10 mx-auto conatin">
+        <form action="addjob" method="post" encType="multipart/form-data">
+            <label class="form-label"><b>Job Details</b></label>
+            <br><br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Title</label>
+                    <input type="text" class="form-control" name="title" palceholder="Title" required="true">
+                </div>
+                <div class="col">
+                    <label class="form-label">Company</label>
+                    <input type="text" class="form-control" name="company" placeholder="Amazon" required="true">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-label">Job Description</label>
+                    <textarea rows="10" placeholder="Description" class="form-control" name="desc"></textarea>
+                </div>
+            </div>
+            <br><br>
+            <label class="form-label"><b>Application Details</b></label><br><br>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Status </label>
+                    <input type="text" class="form-control" name="status" placeholder="Active" required="true">
+                </div>
+                <div class="col">
+                    <label class="form-label">Application Link</label>
+                    <input type="text" class="form-control" name="link" required="true">
+                </div>
+                
+            </div>
+            <br>
+            
+            <label class="form-label"><b>Job Cover Image</b></label><br><br>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">File Image</label>
+                        <input type="file" class="form-control-file" name="jobImage" id="exampleFormControlFile1">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Add Job</button>
+        </form>
+    </div>
+
+    <!--    FORM-->
+</div>
+</body>
+</html>
