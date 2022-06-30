@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+
+        <script>
+            $(document).ready(function(){
+                $('#myTable').DataTable();
+            });
+        </script>
+    </head>
+    <body>
+        <%- include('partials/navbar') %>
+        <div class="container">
+            <br>
+            <h3 class="text-center">Add Students</h3>
+            <br>
+            <div class="col-md-10 mx-auto contain">
+                <form method="post" action="addstudent" enctype="multipart/form-data">
+                    <label for="studentcsv">Select a file:</label>
+                    <input type="file" id="studentcsv" name="studentcsv"><br><br>
+                    <button type="submit" class="btn btn-success">Add Students</button>
+                </form>
+            </div>
+        </div>
+        
+
+</body> 
+    </body>
+</html>

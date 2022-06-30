@@ -1,13 +1,43 @@
-<!doctype html>
-<html>
-    <head>
-        <%- include('partials/head') %>
-    </head>
-    <body>
-        <%- include('partials/navbar') %>
-        <div class="container mx-auto">
-            <br>
-            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <%- include('partials/head') %>
+
+</head>
+<body>
+
+<%- include('partials/navbar') %>
+
+<div class="container mx-auto">
+    <br />
+    <h3 class="text-center"><%=Data[0].Title %></h3>
+    <br /><br />
+    <div class="row jobinforow">
+        <div class="col-md-6">
+            <img src="/jobImg/<%=Data[0].identifier %>.jpg" class="bookImg" />
         </div>
-    </body>
+        <div class="col-md-6 jobinfosec">
+            <p><b>Job ID:</b> <%=Data[0].jobID %></p>
+            <p><b>Title: </b> <%=Data[0].Title %></p>
+            <p><b>Company: </b> <%=Data[0].Company %></p>
+            <p><b>Description: </b> <%=Data[0].Description %></p>
+            <p><b>Status:</b> <%=Data[0].Status %></p>
+            <p><b>Application Link: </b> <a href="<%=Data[0].Link%>"><%=Data[0].Link%></a></p>
+            
+            <br />
+            <%if(locals.role > 1){ %>
+            
+            <a href="/admin/lib/update/id=<%=Data[0].jobID %>" class="btn btn-success">Update Status</a>
+            <a href="/admin/lib/delete/<%=Data[0].jobID%>" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger">Delete</a>
+            <% } else{ %>
+            <a href="<%=Data[0].Link%>" class="btn btn-success">Apply</a>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<%- include('partials/footer') %>
+</body>
 </html>

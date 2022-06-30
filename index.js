@@ -52,9 +52,9 @@ db.dbConnect();
 // Routes
 const authRoutes     = require('./routes/auth');
 const jobRoutes      = require('./routes/jobs');
-//const userRoutes     = require('./routes/user');
-//const adminRoutes    = require('./routes/admin');
-//const archivesRoutes = require('./routes/archives');
+const userRoutes     = require('./routes/user');
+const adminRoutes    = require('./routes/admin');
+const archivesRoutes = require('./routes/archives');
 
 
 const {con} = require('./utils/db');
@@ -62,9 +62,9 @@ const {con} = require('./utils/db');
 // My Routes
 app.use('/auth', authRoutes);
 app.use('/job', jobRoutes);
-//app.use('/user', userRoutes);
-//app.use('/admin', adminRoutes);
-//app.use('/archives', archivesRoutes);
+app.use('/user', userRoutes);
+app.use('/admin', adminRoutes);
+app.use('/archives', archivesRoutes);
 
 // Starting a server
 app.listen(port, () => {
@@ -74,3 +74,11 @@ app.listen(port, () => {
 app.get('/', (req, res) =>{
     res.render('index')
 });
+
+app.get('/about', (req, res) => {
+    res.render("about", {alert: "no", loginStatus: req.session.email})
+})
+
+app.get('/contact', (req, res) => {
+    res.render("contact", {alert: "no", loginStatus: req.session.email})
+})

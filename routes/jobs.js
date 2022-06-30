@@ -5,6 +5,7 @@ const {viewjobs, viewjobbyid} = require("../controllers/job");
 
 router.get("/view", viewjobs);
 
+
 router.get('/viewbyid/:id', isLoggedIn, viewjobbyid)
 
 module.exports = router;

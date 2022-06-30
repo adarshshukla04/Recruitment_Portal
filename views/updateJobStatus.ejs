@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <%- include('partials/head') %>
+
+    <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable();
+        });
+    </script>
+</head>
+<body>
+<%- include('partials/navbar') %>
+<div class="conatiner">
+    <br>
+    <h3 class="text-center">Add Job for Library</h3>
+    <br>
+    <div class="col-md-10 mx-auto conatin">
+        <form action="updatejobstatus" method="post" encType="multipart/form-data">
+            <p name="jobid"><b>JobID</b>: <%=id[3] %> </p>
+            <label class="form-label"><b>Update Status:</b></label>
+            <br><br>
+            <select name="updatejobstatus" id="updatejobstatus">
+                <option value="Active">Active</option>
+                <option value="Coming Soon">Coming Soon</option>
+                <option value="Closing Soon">Closing Soon</option>
+              </select>
+            
+            
+            <br>
+            <br>
+            <button type="submit" class="btn btn-success">Update Job Status</button>
+        </form>
+    </div>
+
+    <!--    FORM-->
+</div>
+</body>
+</html>

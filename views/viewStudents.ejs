@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <%- include('partials/head') %>
+        <script>
+            $(document).ready(function (){
+                $('#myTable').DataTable();
+            });
+        </script>
+    </head>
+    <body>
+        <%- include('partials/navbar') %>
+        <div class="container">
+            <br>
+            <h3 class="text-center">Manage Students </h3>
+            <br>
+            <table class="table table-striped table-bordered" id="myTable">
+                <thead>
+                    <tr class="table-dark">
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>DOB</th>
+                        <th>Email</th>
+                        <th>Phone No.</th>                    
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data.length!=0){var i=1; data.forEach(function(sdata){ %>
+
+                        <tr>
+                            <td>
+                               <a href="/admin/viewStudbyId/<%=sdata.id %>"><%= sdata.id %></a> 
+                            </td>
+                            <td>
+                                <%= sdata.first_name %>
+                            </td>
+                            <td>
+                                <%= sdata.last_name %>
+                            </td>
+                            <td>
+                                <%= sdata.gender %>
+                            </td>
+                            <td>
+                                <%= sdata.dob %>
+                            </td>
+                            <td>
+                                <%= sdata.email %>
+                            </td>
+                            <td>
+                                <%= sdata.phone %>
+                            </td>
+                        </tr>
+                    <% i++; }) %>
+                    <% } else{ %>
+                        <tr>
+                            <td colspan="100%">No Data Found </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <%- include('partials/footer') %>
+    </body>
+</html>

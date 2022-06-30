@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <%- include ('partials/head') %>
+    </head>
+    <body>
+        <%- include('partials/navbar') %>
+        <div class="container mx-auto">
+            <br />
+            <h3 class="text-center">Details of <%= studData[0].first_name %> </h3>
+            <br /><br />
+            <div class="row jobinforow">
+                <div class="col-md-6 jobinfosec">
+                    <p><b>First Name:</b> <%= studData[0].first_name %></p>
+                    <p><b>Last Name:</b> <%= studData[0].last_name %></p>
+                    <p><b>Gender:</b> <%= studData[0].gender %></p>
+                    <p><b>Date of Birth:</b> <%= studData[0].dob %></p>
+                    <p><b>Email address:</b> <%= studData[0].email %></p>
+                    <p><b>Phone Number:</b> <%= studData[0].phone %></p>
+                    <p><b>Address:</b> <%= studData[0].address %></p>
+                    <p><b>City:</b> <%= studData[0].city %></p>
+                    <p><b>State:</b> <%= studData[0].state %></p>
+                    <p><b>Pin Code:</b> <%= studData[0].pin %></p>
+
+                    <br />
+                    <a href="/admin/lib/deleteStud/<%= studData[0].id %>" onclick="return confirm('Are you sure you want to remove this student?');" class="btn btn-danger">Remove Student</a>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <%- include('partials/footer') %>
+    </body>
+</html>
